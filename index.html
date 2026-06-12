@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngọc Phúc & Thuỳ Trinh — Thiệp cưới</title>
+  <meta name="description"
+    content="Trân trọng kính mời bạn đến chung vui trong ngày trọng đại của Ngọc Phúc & Thuỳ Trinh — 2 tháng 8, 2026.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500;600&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Petals container -->
+  <div id="petals"></div>
+
+  <!-- COVER -->
+  <div id="cover" class="cover">
+    <div class="card fade-up" style="padding-top:5.5rem">
+      <div class="heart">
+        <svg style="fill:#ffffff;width:calc(.25rem * 7); height: calc(.25rem * 7);" viewBox="0 0 24 24">
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
+          </path>
+        </svg>
+      </div>
+      <div class="flower-deco top-left">&#10086;</div>
+      <div class="flower-deco bottom-right">&#10086;</div>
+      <div style="position:relative;z-index:1">
+        <h1>Ngọc Phúc</h1>
+        <p class="and font-script">&</p>
+        <h1>Thuỳ Trinh</h1>
+        <div class="divider">
+          <span class="line"></span>
+          <span>❦</span>
+          <span class="line"></span>
+        </div>
+        <p class="date font-serif">2 tháng 8, 2026</p>
+        <p class="invite-label font-script">Thân Mời</p>
+        <button class="btn" style="margin-top:1.5rem" onclick="openInvite()">Mở thiệp</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN INVITATION -->
+  <div id="main" class="hide">
+    <header class="header fade-up">
+      <h1>Ngọc Phúc</h1>
+      <p class="and font-script">&</p>
+      <h1>Thuỳ Trinh</h1>
+      <p class="date font-serif">2 tháng 8, 2026</p>
+    </header>
+
+    <div class="card background" style="background-image:url(/middle.webp);">
+      <!-- <img alt="" aria-hidden="true" loading="lazy" decoding="async" src="" style="margin-top: 0px;"> -->
+      <!-- Thông tin lễ cưới -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title font-serif">Thông tin lễ cưới</h2>
+          <div class="divider">
+            <span class="line"></span>
+            <span>&#10087;</span>
+            <span class="line"></span>
+          </div>
+          <div class="two-col">
+            <div>
+              <p class="family-label font-serif">Nhà Trai</p>
+              <p>Ông Bà Nguyễn Văn A</p>
+              <p>Trần Thị Lan</p>
+              <p style="font-size:.875rem;color:var(--muted-fg);margin-top:.5rem">abcrer, dáuighdsifbsd</p>
+            </div>
+            <div>
+              <p class="family-label font-serif">Nhà Gái</p>
+              <p>Ông Bà Trần Văn Minh</p>
+              <p>Phạm Thị Hoa</p>
+              <p style="font-size:.875rem;color:var(--muted-fg);margin-top:.5rem;word-break:break-word">
+                fdsfsdfdfddddddddddddddddddddddddddddddd</p>
+            </div>
+          </div>
+          <div class="announcement">
+            <p class="label font-serif">TRÂN TRỌNG BÁO TIN</p>
+            <p class="sub-label font-serif">LỄ THÀNH HÔN CỦA CON CHÚNG TÔI</p>
+            <h3 class="couple-name font-serif">Hoàng Ngọc Phúc</h3>
+            <p class="role">Trưởng Nam</p>
+            <p class="and font-script" style="font-size:1.5rem;margin:.25rem 0">&</p>
+            <h3 class="couple-name font-serif">Nguyễn Lê Thuỳ Trinh</h3>
+            <p class="role">Ái Nữ</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Album ảnh cưới -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title font-serif">Album ảnh cưới</h2>
+          <div class="divider">
+            <span class="line"></span>
+            <span>&#10087;</span>
+            <span class="line"></span>
+          </div>
+          <div class="gallery-wrap">
+            <div class="gallery-main">
+              <img id="gallery-img" src="" alt="Ảnh cưới">
+              <button class="gallery-nav prev" onclick="galleryPrev()">&#8249;</button>
+              <button class="gallery-nav next" onclick="galleryNext()">&#8250;</button>
+              <div class="gallery-counter"><span id="gallery-idx">1</span> / <span id="gallery-total">13</span></div>
+            </div>
+            <div class="thumbs" id="thumbs"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Thông tin tiệc cưới -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title font-serif">Thông tin tiệc cưới</h2>
+          <div class="divider">
+            <span class="line"></span>
+            <span>&#10087;</span>
+            <span class="line"></span>
+          </div>
+          <div class="wedding-time">
+            <p style="font-size:1.125rem;color:var(--card-fg);opacity:.9">Tiệc cưới sẽ diễn ra vào lúc:</p>
+            <p class="big-time">23:00</p>
+            <div class="wedding-date-box">
+              <div class="wedding-date-inner">
+                <p class="dow">Chủ Nhật</p>
+                <p class="num">02</p>
+                <p class="month">Tháng 08</p>
+                <p style="font-size:.75rem;color:var(--muted-fg)">2026</p>
+              </div>
+            </div>
+            <p class="wedding-note">(Tức ngày 20/06 năm Bính Ngọ)</p>
+            <div class="schedule-mini">
+              <p><span style="color:var(--muted-fg)">Đón khách</span> · <strong>22:00</strong></p>
+              <p><span style="color:var(--muted-fg)">Khai tiệc</span> · <strong>23:00</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cùng đếm ngược -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title font-serif">Cùng đếm ngược</h2>
+          <div class="divider">
+            <span class="line"></span>
+            <span>&#10087;</span>
+            <span class="line"></span>
+          </div>
+          <div class="countdown">
+            <div class="count-box">
+              <div class="num" id="cd-days">00</div>
+              <div class="unit">Ngày</div>
+            </div>
+            <div class="count-box">
+              <div class="num" id="cd-hours">00</div>
+              <div class="unit">Giờ</div>
+            </div>
+            <div class="count-box">
+              <div class="num" id="cd-minutes">00</div>
+              <div class="unit">Phút</div>
+            </div>
+            <div class="count-box">
+              <div class="num" id="cd-seconds">00</div>
+              <div class="unit">Giây</div>
+            </div>
+          </div>
+          <p class="calendar-title font-serif">Tháng 8 / 2026</p>
+          <div class="calendar-grid" id="calendar-grid"></div>
+          <div style="text-align:center">
+            <a class="btn cal-btn"
+              href="https://www.google.com/calendar/render?action=TEMPLATE&text=%C4%90%C3%A1m%20c%C6%B0%E1%BB%9Bi%20Ho%C3%A0ng%20Ng%E1%BB%8Dc%20Ph%C3%BAc%20%26%20Nguy%E1%BB%85n%20L%C3%AA%20Thu%E1%BB%B3%20Trinh&dates=20260802T160000Z/20260802T180000Z&ctz=Asia/Bangkok"
+              target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Thêm vào lịch
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Xác nhận tham dự -->
+      <section class="section" style="padding: 0 1rem;">
+        <div class="container">
+          <div class="divider">
+            <span class="line"></span>
+            <span>&#10087;</span>
+            <span class="line"></span>
+          </div>
+          <p class="rsvp-text">Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi. Xin xác nhận để chúng tôi
+            chuẩn bị chu đáo nhất.</p>
+        </div>
+      </section>
+
+      <!-- Địa điểm -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title font-serif">Tiệc cưới sẽ tổ chức tại</h2>
+          <div class="divider">
+            <span class="line"></span>
+            <span>&#10087;</span>
+            <span class="line"></span>
+          </div>
+          <div style="text-align:center">
+            <p class="location-text font-serif">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem;height:1.25rem">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              sdfsdfsd
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lịch trình -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title font-serif">Lịch trình ngày cưới</h2>
+          <div class="divider">
+            <span class="line"></span>
+            <span>&#10087;</span>
+            <span class="line"></span>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-time font-serif">21:00</p>
+              <p class="timeline-label">Rước dâu</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-time font-serif">22:30</p>
+              <p class="timeline-label">Đón khách nhà hàng</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-time font-serif">23:00</p>
+              <p class="timeline-label">Lễ nhà hàng</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-time font-serif">23:30</p>
+              <p class="timeline-label">Khai tiệc</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <p>&#9825; Trân trọng cảm ơn</p>
+    </footer>
+  </div>
+
+  <script>
+    const PHOTOS = [
+      "https://cdn.chungdoi.com/uploads/a89b5a43-bf3c-435c-be0e-9ed7213428eb.jpg",
+      "https://cdn.chungdoi.com/uploads/8340f891-dbf6-452b-98d0-6485a6c482fc.jpg",
+      "https://cdn.chungdoi.com/uploads/7b09e141-274a-4c65-9733-2411005f0160.jpg",
+      "https://cdn.chungdoi.com/uploads/205e7c52-faf6-4d6b-997f-8b09f1e79660.jpg",
+      "https://cdn.chungdoi.com/uploads/5994e2c6-ad8c-4f69-9069-5de60075ee97.jpg",
+      "https://cdn.chungdoi.com/uploads/f2904e37-242c-454c-91ab-fd917c0bc9cc.jpg",
+      "https://cdn.chungdoi.com/uploads/cbed0501-1ac2-4e0d-8573-551c50d859db.jpg",
+      "https://cdn.chungdoi.com/uploads/b4813607-0702-4fd9-b0dc-14159dfbc1c0.jpg",
+      "https://cdn.chungdoi.com/uploads/5fd4cf8b-599a-4a3c-b5d3-bcb9bbd20758.jpg",
+      "https://cdn.chungdoi.com/uploads/7a5a1191-59aa-4cd2-9e3d-34826b22601a.jpg",
+      "https://cdn.chungdoi.com/uploads/acdd7d91-a6ca-4442-ac5b-e0a04763ab4c.jpg",
+      "https://cdn.chungdoi.com/uploads/d717bb2b-e47f-45e0-aee2-c3672ea8280a.jpg",
+      "https://cdn.chungdoi.com/uploads/ecc4e581-79a8-4387-b7e8-ba50cdd3b361.jpg",
+    ];
+
+    const WEDDING_DATE = new Date("2026-08-02T23:00:00+07:00");
+
+    // Petals
+    function createPetals() {
+      const container = document.getElementById('petals');
+      for (let i = 0; i < 14; i++) {
+        const s = document.createElement('span');
+        s.className = 'petal';
+        s.textContent = '\u{1F338}';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.animationDuration = (12 + Math.random() * 12) + 's';
+        s.style.animationDelay = (-Math.random() * 20) + 's';
+        s.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+        container.appendChild(s);
+      }
+    }
+    createPetals();
+
+    // Cover
+    function openInvite() {
+      document.getElementById('cover').classList.add('hide');
+      document.getElementById('main').classList.remove('hide');
+      initGallery();
+      initCalendar();
+      startCountdown();
+    }
+
+    // Gallery
+    let galleryIdx = 0;
+    function initGallery() {
+      const img = document.getElementById('gallery-img');
+      const idx = document.getElementById('gallery-idx');
+      const total = document.getElementById('gallery-total');
+      const thumbs = document.getElementById('thumbs');
+      img.src = PHOTOS[0];
+      idx.textContent = '1';
+      total.textContent = PHOTOS.length;
+      thumbs.innerHTML = '';
+      PHOTOS.slice(0, 6).forEach((p, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'thumb' + (i === 0 ? ' active' : '');
+        btn.onclick = () => setGalleryIdx(i);
+        const imgEl = document.createElement('img');
+        imgEl.src = p;
+        imgEl.alt = '';
+        btn.appendChild(imgEl);
+        thumbs.appendChild(btn);
+      });
+    }
+    function setGalleryIdx(i) {
+      galleryIdx = i;
+      document.getElementById('gallery-img').src = PHOTOS[i];
+      document.getElementById('gallery-idx').textContent = i + 1;
+      document.querySelectorAll('.thumb').forEach((t, ti) => {
+        t.classList.toggle('active', ti === i);
+      });
+    }
+    function galleryPrev() { setGalleryIdx((galleryIdx - 1 + PHOTOS.length) % PHOTOS.length) }
+    function galleryNext() { setGalleryIdx((galleryIdx + 1) % PHOTOS.length) }
+
+    // Calendar
+    function initCalendar() {
+      const grid = document.getElementById('calendar-grid');
+      const days = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+      days.forEach(d => {
+        const el = document.createElement('div');
+        el.className = 'dow';
+        el.textContent = d;
+        grid.appendChild(el);
+      });
+      const monthStart = new Date(2026, 7, 1);
+      const startDow = (monthStart.getDay() + 6) % 7;
+      const daysInMonth = 31;
+      for (let i = 0; i < startDow; i++) {
+        const el = document.createElement('div');
+        el.className = 'day';
+        grid.appendChild(el);
+      }
+      for (let d = 1; d <= daysInMonth; d++) {
+        const el = document.createElement('div');
+        el.className = 'day' + (d === 2 ? ' wedding' : '');
+        el.textContent = d;
+        grid.appendChild(el);
+      }
+    }
+
+    // Countdown
+    function startCountdown() {
+      function update() {
+        const diff = Math.max(0, WEDDING_DATE.getTime() - Date.now());
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+      }
+      update();
+      setInterval(update, 1000);
+    }
+
+    // RSVP
+    let rsvpValue = null;
+    function selectRsvp(el) {
+      rsvpValue = el.dataset.value;
+      document.querySelectorAll('.rsvp-opt').forEach(o => o.classList.remove('active'));
+      el.classList.add('active');
+    }
+    function submitRsvp(e) {
+      e.preventDefault();
+      const name = document.getElementById('rsvp-name').value.trim();
+      if (!name || !rsvpValue) return false;
+      document.getElementById('rsvp-btn').textContent = '\u2713 Cảm ơn bạn!';
+      document.getElementById('rsvp-btn').disabled = true;
+      return false;
+    }
+  </script>
+
+</body>
+
+</html>
