@@ -20,7 +20,7 @@
 
   <!-- COVER -->
   <div id="cover" class="cover">
-    <div class="card fade-up" style="padding-top:5.5rem">
+    <div class="card" style="padding-top:5.5rem">
       <div class="heart">
         <svg style="fill:#ffffff;width:calc(.25rem * 7); height: calc(.25rem * 7);" viewBox="0 0 24 24">
           <path
@@ -41,14 +41,14 @@
         </div>
         <p class="date font-serif">2 tháng 8, 2026</p>
         <p class="invite-label font-script">Thân Mời</p>
-        <button class="btn" style="margin-top:1.5rem" onclick="openInvite()">Mở thiệp</button>
+        <button class="btn open-btn" style="margin-top:1.5rem" onclick="openCard()">Mở thiệp</button>
       </div>
     </div>
   </div>
 
   <!-- MAIN INVITATION -->
   <div id="main" class="hide">
-    <header class="header fade-up">
+    <header class="header">
       <h1>Ngọc Phúc</h1>
       <p class="and font-script">&</p>
       <h1>Thuỳ Trinh</h1>
@@ -56,7 +56,6 @@
     </header>
 
     <div class="card background" style="background-image:url(middle.webp);">
-      <!-- <img alt="" aria-hidden="true" loading="lazy" decoding="async" src="" style="margin-top: 0px;"> -->
       <!-- Thông tin lễ cưới -->
       <section class="section">
         <div class="container">
@@ -262,8 +261,8 @@
       <p>&#9825; Trân trọng cảm ơn</p>
     </footer>
   </div>
-
-  <script>
+<script src="script.js"></script>
+  <!-- <script>
     const PHOTOS = [
       "g1.jpg",
       "g2.jpg",
@@ -276,7 +275,9 @@
     ];
 
     const WEDDING_DATE = new Date("2026-08-02T23:00:00+07:00");
-
+    const card = document.querySelector(".card");
+    const heart = document.querySelector(".heart");
+    const btn = document.querySelector(".open-btn");
     // Petals
     function createPetals() {
       const container = document.getElementById('petals');
@@ -294,12 +295,32 @@
     createPetals();
 
     // Cover
-    function openInvite() {
-      document.getElementById('cover').classList.add('hide');
-      document.getElementById('main').classList.remove('hide');
-      initGallery();
-      initCalendar();
-      startCountdown();
+    function openCard() {
+      btn.classList.add(
+        "bloom"
+      );
+
+      bloom();
+
+      setTimeout(() => {
+        heart.classList.add(
+          "open"
+        );
+      }, 150);
+
+      setTimeout(() => {
+        card.classList.add(
+          "open"
+        );
+      }, 350);
+
+      setTimeout(() => {
+        document.getElementById('cover').classList.add('hide');
+        document.getElementById('main').classList.remove('hide');
+        initGallery();
+        initCalendar();
+        startCountdown();
+      }, 4)
     }
 
     // Gallery
@@ -393,7 +414,61 @@
       document.getElementById('rsvp-btn').disabled = true;
       return false;
     }
-  </script>
+
+    // const sound = document.getElementById( "openSound" );
+
+    function bloom() {
+
+      const wrap = document.createElement("div");
+
+      wrap.className = "flower-burst";
+
+      for (let i = 0; i < 14; i++) {
+        const p = document.createElement("div");
+        p.className = "flower-p";
+        p.innerHTML = "🌸";
+        const angle = Math.random() * 360;
+        const dist = 100 + Math.random() * 150;
+        const x = Math.cos(angle) * dist;
+        const y = Math.sin(angle) * dist;
+        p.style.setProperty("--x", x + "px");
+        p.style.setProperty("--y", y + "px");
+        wrap.appendChild(p);
+      }
+
+      card.appendChild(wrap);
+
+      setTimeout(
+        () => wrap.remove(),
+        1000
+      );
+
+    }
+
+    // function openCard() {
+    //   sound.currentTime = 0;
+    //   sound.play().catch(() => { });
+
+    //   btn.classList.add(
+    //     "bloom"
+    //   );
+
+    //   bloom();
+
+    //   setTimeout(() => {
+    //     heart.classList.add(
+    //       "open"
+    //     );
+    //   }, 150);
+
+    //   setTimeout(() => {
+    //     card.classList.add(
+    //       "open"
+    //     );
+    //   }, 350);
+
+    // }
+  </script> -->
 
 </body>
 

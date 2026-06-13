@@ -76,22 +76,6 @@ h4 {
   z-index: 1;
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px)
-  }
-
-  to {
-    opacity: 1;
-    transform: none
-  }
-}
-
-.fade-up {
-  animation: fade-up .9s ease-out both
-}
-
 .btn {
   display: inline-block;
   padding: .75rem 2rem;
@@ -758,4 +742,131 @@ h4 {
   height: 1em;
   display: inline-block;
   vertical-align: middle;
+}
+
+/* ---------- button ---------- */
+
+.open-btn {
+  position: relative;
+  overflow: hidden;
+  background: #a56e51;
+  color: white;
+  border: none;
+  padding: 16px 44px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+/* bóng kính */
+
+.open-btn::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -120%;
+  width: 60px;
+  height: 220%;
+  background:
+    linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, .65),
+      transparent);
+  transform: rotate(15deg);
+
+  animation: shine 3s infinite;
+
+}
+
+@keyframes shine {
+
+  0% {
+    left: -120%;
+  }
+
+  50% {
+    left: 140%;
+  }
+
+  100% {
+    left: 140%;
+  }
+
+}
+
+.open-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- nở hoa ---------- */
+
+.open-btn.bloom {
+  animation: bloom .9s ease forwards;
+}
+
+@keyframes bloom {
+
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, .3);
+  }
+
+  100% {
+    transform: scale(.5);
+    opacity: 0;
+  }
+}
+
+/* ---------- tim ---------- */
+
+.heart {
+  transition: 1.3s;
+}
+
+.heart.open {
+  transform: scale(12);
+  opacity: 0;
+}
+
+/* ---------- card ---------- */
+
+.card {
+  transition: 1.5s cubic-bezier(.2, .8, .2, 1);
+}
+
+.card.open {
+  transform: translateY(-140vh) scale(.95);
+  opacity: 0;
+}
+
+/* ---------- hoa nở ---------- */
+
+.flower-burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.flower-p {
+  position: absolute;
+  font-size: 28px;
+  animation: burst .9s forwards;
+}
+
+@keyframes burst {
+  0% {
+    transform: translate(0, 0) scale(.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) rotate(360deg) scale(1.4);
+    opacity: 0;
+  }
 }
