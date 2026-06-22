@@ -198,27 +198,3 @@ function bloom() {
   );
 
 }
-
-// function openCard() {
-//   sound.currentTime = 0;
-//   sound.play().catch(() => { });
-
-//   btn.classList.add(
-//     "bloom"
-//   );
-
-//   bloom();
-
-//   setTimeout(() => {
-//     heart.classList.add(
-//       "open"
-//     );
-//   }, 150);
-
-//   setTimeout(() => {
-//     card.classList.add(
-//       "open"
-//     );
-//   }, 350);
-
-// }
