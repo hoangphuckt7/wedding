@@ -1,12 +1,12 @@
 const PHOTOS = [
-  "g1.jpg",
-  "g2.jpg",
-  "g3.jpg",
-  "g4.jpg",
-  "g5.jpg",
-  "g6.jpg",
-  "g7.jpg",
-  "g8.jpg",
+  "g1.webp",
+  "g2.webp",
+  "g3.webp",
+  "g4.webp",
+  "g5.webp",
+  "g6.webp",
+  "g7.webp",
+  "g8.webp",
 ];
 
 const card = document.querySelector(".card");
@@ -65,8 +65,9 @@ function openCard() {
       cover.style.display = "none";
       main.classList.remove("hide");
       requestAnimationFrame(() => {
+        musicBtn.style.display = "flex";
+        playMusic();
         initGallery?.();
-        // initCalendar?.();
         render("groom");
       });
     }, 200);
@@ -320,596 +321,74 @@ tabs.forEach(
 createPetals();
 
 
-// ============================
-// CONFIG
-// ============================
 
+const bgMusic = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
 
+let musicPlaying = false;
 
 
-// const card =
-//   document.querySelector(
-//     ".card"
-//   );
+// phát
 
-// const heart =
-//   document.querySelector(
-//     ".heart"
-//   );
+function playMusic() {
 
-// const btn =
-//   document.querySelector(
-//     ".open-btn"
-//   );
+  if (musicPlaying) return;
 
-// const toggle =
-//   document.querySelector(
-//     ".toggle"
-//   );
+  bgMusic.volume = 0.35;
+  bgMusic.play()
+    .then(() => {
+      musicPlaying =
+        true;
+      musicBtn.textContent =
+        "🔊";
+      musicBtn.classList.add(
+        "playing"
+      );
+    })
+    .catch(() => {
 
-// const tabs =
-//   document.querySelectorAll(
-//     ".tab"
-//   );
+      console.log(
+        "autoplay blocked"
+      );
 
-// const DOM = {
+    });
 
-//   title:
-//     document.getElementById(
-//       "title"
-//     ),
+}
 
-//   time:
-//     document.getElementById(
-//       "time"
-//     ),
 
-//   date:
-//     document.getElementById(
-//       "date"
-//     ),
+// tắt
 
-//   month:
-//     document.getElementById(
-//       "month"
-//     ),
+function pauseMusic() {
+  bgMusic.pause();
+  musicPlaying = false;
 
-//   year:
-//     document.getElementById(
-//       "year"
-//     ),
+  musicBtn.textContent = "🔇";
+  musicBtn.classList.remove(
+    "playing"
+  );
 
-//   monyea:
-//     document.getElementById(
-//       "monyea"
-//     ),
+}
 
-//   note:
-//     document.getElementById(
-//       "note"
-//     ),
 
-//   detail:
-//     document.getElementById(
-//       "detail"
-//     )
+// toggle
 
-// };
+function toggleMusic() {
 
-// // ============================
-// // PETALS
-// // ============================
+  if (
+    musicPlaying
+  ) {
 
-// function createPetals() {
+    pauseMusic();
 
-//   const c =
-//     document.getElementById(
-//       "petals"
-//     );
+  } else {
 
-//   if (!c) return;
+    playMusic();
 
-//   for (
-//     let i = 0;
-//     i < 14;
-//     i++
-//   ) {
+  }
 
-//     const p =
-//       document.createElement(
-//         "span"
-//       );
+}
 
-//     p.className =
-//       "petal";
-
-//     p.textContent =
-//       "🌸";
-
-//     p.style.left =
-//       Math.random() * 100 +
-//       "%";
-
-//     p.style.animationDuration =
-//       (
-//         12 +
-//         Math.random() * 10
-//       ) + "s";
-
-//     p.style.animationDelay =
-//       (
-//         -Math.random() * 20
-//       ) + "s";
-
-//     c.appendChild(
-//       p
-//     );
-
-//   }
-
-// }
-
-// // ============================
-// // COVER
-// // ============================
-
-// function openCard() {
-
-//   if (
-//     card.classList.contains(
-//       "opening"
-//     )
-//   )
-//     return;
-
-//   card.classList.add(
-//     "opening"
-//   );
-
-//   btn.classList.add(
-//     "bloom"
-//   );
-
-//   bloom();
-
-//   setTimeout(
-//     () => heart.classList.add(
-//       "open"
-//     ),
-//     150
-//   );
-
-//   setTimeout(
-//     () => card.classList.add(
-//       "open"
-//     ),
-//     450
-//   );
-
-//   setTimeout(() => {
-
-//     document
-//       .getElementById(
-//         "cover"
-//       )
-
-//       .classList.add(
-//         "hide"
-//       );
-
-//     const main =
-//       document
-//         .getElementById(
-//           "main"
-//         );
-
-//     main.classList.remove(
-//       "hide"
-//     );
-
-//     requestAnimationFrame(() => {
-
-//       initGallery();
-
-//       initCalendar();
-
-//       render(
-//         "groom"
-//       );
-
-//     });
-
-//   }, 850);
-
-// }
-
-// // ============================
-// // BLOOM
-// // ============================
-
-// function bloom() {
-
-//   const wrap =
-//     document.createElement(
-//       "div"
-//     );
-
-//   wrap.className =
-//     "flower-burst";
-
-//   for (
-//     let i = 0;
-//     i < 14;
-//     i++
-//   ) {
-
-//     const p =
-//       document.createElement(
-//         "div"
-//       );
-
-//     p.className =
-//       "flower-p";
-
-//     p.textContent =
-//       "🌸";
-
-//     const angle =
-//       Math.random()
-//       * 360;
-
-//     const dist =
-//       100 +
-//       Math.random()
-//       * 150;
-
-//     p.style
-//       .setProperty(
-//         "--x",
-//         Math.cos(angle)
-//         * dist + "px"
-//       );
-
-//     p.style
-//       .setProperty(
-//         "--y",
-//         Math.sin(angle)
-//         * dist + "px"
-//       );
-
-//     wrap.appendChild(
-//       p
-//     );
-
-//   }
-
-//   card.appendChild(
-//     wrap
-//   );
-
-//   setTimeout(
-//     () => wrap.remove(),
-//     1000
-//   );
-
-// }
-
-// // ============================
-// // GALLERY
-// // ============================
-
-// let galleryIdx = 0;
-
-// function initGallery() {
-
-//   const thumbs =
-//     document.getElementById(
-//       "thumbs"
-//     );
-
-//   if (
-//     thumbs.dataset.ready
-//   )
-//     return;
-
-//   thumbs.dataset.ready =
-//     1;
-
-//   setGalleryIdx(
-//     0
-//   );
-
-//   PHOTOS.forEach(
-//     (src, i) => {
-
-//       const b =
-//         document.createElement(
-//           "button"
-//         );
-
-//       b.className =
-//         "thumb";
-
-//       b.onclick =
-//         () => setGalleryIdx(
-//           i
-//         );
-
-//       b.innerHTML =
-//         `<img src="${src}">`;
-
-//       thumbs.appendChild(
-//         b
-//       );
-
-//     }
-
-//   );
-
-// }
-
-// function setGalleryIdx(
-//   i
-// ) {
-
-//   galleryIdx = i;
-
-//   document
-//     .getElementById(
-//       "gallery-img"
-//     )
-
-//     .src =
-//     PHOTOS[i];
-
-//   document
-//     .getElementById(
-//       "gallery-idx"
-//     )
-
-//     .textContent =
-//     i + 1;
-
-//   document
-//     .getElementById(
-//       "gallery-total"
-//     )
-
-//     .textContent =
-//     PHOTOS.length;
-
-//   document
-//     .querySelectorAll(
-//       ".thumb"
-//     )
-
-//     .forEach(
-//       (el, idx) => {
-
-//         el.classList.toggle(
-//           "active",
-//           idx === i
-//         );
-
-//       }
-
-//     );
-
-// }
-
-// function galleryPrev() {
-
-//   setGalleryIdx(
-//     (
-//       galleryIdx - 1 +
-//       PHOTOS.length
-//     )
-//     %
-//     PHOTOS.length
-//   );
-
-// }
-
-// function galleryNext() {
-
-//   setGalleryIdx(
-//     (
-//       galleryIdx + 1
-//     )
-//     %
-//     PHOTOS.length
-//   );
-
-// }
-
-// // ============================
-// // CALENDAR
-// // ============================
-
-// function initCalendar() {
-
-//   const grid =
-//     document.getElementById(
-//       "calendar-grid"
-//     );
-
-//   if (
-//     grid.dataset.ready
-//   )
-//     return;
-
-//   grid.dataset.ready =
-//     1;
-
-//   grid.innerHTML =
-//     "";
-
-//   const days =
-//     [
-//       "T2",
-//       "T3",
-//       "T4",
-//       "T5",
-//       "T6",
-//       "T7",
-//       "CN"
-//     ];
-
-//   days.forEach(
-//     d => {
-
-//       grid.innerHTML +=
-//         `<div class="dow">${d}</div>`;
-
-//     }
-
-//   );
-
-// }
-
-// // ============================
-// // COUNTDOWN
-// // ============================
-
-// let timer;
-
-// function startCountdown(
-//   date
-// ) {
-
-//   clearInterval(
-//     timer
-//   );
-
-//   function update() {
-
-//     const diff =
-//       Math.max(
-//         0,
-//         date -
-//         Date.now()
-//       );
-
-//     const d =
-//       Math.floor(
-//         diff / 86400000
-//       );
-
-//     const h =
-//       Math.floor(
-//         diff / 3600000
-//       ) % 24;
-
-//     const m =
-//       Math.floor(
-//         diff / 60000
-//       ) % 60;
-
-//     const s =
-//       Math.floor(
-//         diff / 1000
-//       ) % 60;
-
-//     cd-days.textContent == String(d).padStart(2,0);
-
-//     cd-hours.textContent==
-//     String(h)
-//       .padStart(
-//         2,
-//         0
-//       );
-
-//     cd-minutes.textContent==
-//     String(m)
-//       .padStart(
-//         2,
-//         0
-//       );
-
-//     cd-seconds.textContent==
-//     String(s)
-//       .padStart(
-//         2,
-//         0
-//       );
-
-//   }
-
-//   update();
-
-//   timer =
-//     setInterval(
-//       update,
-//       1000
-//     );
-
-// }
-
-// // ============================
-// // TOGGLE
-// // ============================
-
-// function render(
-//   side
-// ) {
-
-//   const data =
-//     wedding[side];
-
-//   Object
-//     .keys(
-//       DOM
-//     )
-
-//     .forEach(
-//       k => {
-
-//         if (
-//           DOM[k]
-//         )
-
-//           DOM[k]
-//             .innerHTML =
-//             data[k] ??
-//             "";
-
-//       }
-
-//     );
-
-//   startCountdown(
-//     data.dateObj
-//   );
-
-// }
-
-// tabs.forEach(
-//   (tab, index) => {
-
-//     tab.onclick = () => {
-
-//       tabs.forEach(
-//         t =>
-//           t.classList.remove(
-//             "active"
-//           )
-//       );
-
-//       tab.classList.add(
-//         "active"
-//       );
-
-//       toggle.classList.toggle(
-//         "right",
-//         index === 1
-//       );
-
-//       render(
-//         tab.dataset.side
-//       );
-
-//     };
-
-//   });
-
-// createPetals();
+musicBtn.addEventListener(
+  "click",
+  toggleMusic
+);

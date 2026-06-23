@@ -916,3 +916,50 @@ h4 {
   transform:
     translateX(100%);
 }
+
+/* loa */
+.music-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  background:
+    rgba(255,
+      255,
+      255,
+      .88);
+  backdrop-filter:
+    blur(12px);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+  transition: .3s;
+}
+
+.music-btn:hover {
+  transform:
+    scale(1.08);
+}
+
+.music-btn.playing {
+  animation:
+    spin 4s linear infinite;
+}
+
+@keyframes spin {
+
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
