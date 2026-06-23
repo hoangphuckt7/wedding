@@ -243,7 +243,10 @@ const wedding = {
        <p><span style="color:var(--muted-fg)">Khai tiệc</span>: <strong>19:00</strong></p>
       `,
     maps: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d683.3154409319504!2d108.00106475415461!3d14.345328904927433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316bff9e19e85733%3A0xc09277f89e4774d5!2zMzAgQuG6oWNoIMSQ4bqxbmcsIEtvbiBUdW0sIFF14bqjbmcgTmfDo2ksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1782205198371!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>`,
-    location: "30 Bạch Đằng, P.Kon Tum, Tỉnh Quãng Ngãi"
+    location: "30 Bạch Đằng, P.Kon Tum, Tỉnh Quãng Ngãi",
+    timeline1: "10:00",
+    timeline2: "11:00",
+    timeline3: "11:30",
   },
 
   bride: {
@@ -264,7 +267,10 @@ const wedding = {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d692.7472056588902!2d106.63245691805383!3d10.828907473199253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175297c4ec70295%3A0xde1c94578afa91ba!2sOscar%20Palace!5e0!3m2!1svi!2s!4v1782191547391!5m2!1svi!2s"
             width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="strict-origin-when-cross-origin"></iframe>`,
-    location: "100 Phan Huy Ích, P.Tân Sơn, TP HCM"
+    location: "100 Phan Huy Ích, P.Tân Sơn, TP HCM",
+    timeline1: "17:30",
+    timeline2: "18:30",
+    timeline3: "19:00",
   }
 };
 const DOM = {
@@ -277,7 +283,10 @@ const DOM = {
   note: document.getElementById("note"),
   detail: document.getElementById("detail"),
   maps: document.getElementById("maps"),
-  location: document.getElementById("location")
+  location: document.getElementById("location"),
+  timeline1: document.getElementById("timeline1"),
+  timeline2: document.getElementById("timeline2"),
+  timeline3: document.getElementById("timeline3"),
 };
 
 function render(side) {
