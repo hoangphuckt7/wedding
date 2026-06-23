@@ -39,7 +39,7 @@
           <span>❦</span>
           <span class="line"></span>
         </div>
-        <p class="date font-serif">2 tháng 8, 2026</p>
+        <!-- <p class="date font-serif">2 tháng 8, 2026</p> -->
         <p class="invite-label font-script">Thân Mời</p>
         <button class="btn open-btn" style="margin-top:1.5rem" onclick="openCard()">Mở thiệp</button>
       </div>
@@ -52,7 +52,7 @@
       <h1>Ngọc Phúc</h1>
       <p class="and font-script">&</p>
       <h1>Thuỳ Trinh</h1>
-      <p class="date font-serif">2 tháng 8, 2026</p>
+      <!-- <p class="date font-serif">2 tháng 8, 2026</p> -->
     </header>
 
     <div class="card background" style="background-image:url(middle.webp);">
@@ -70,14 +70,15 @@
               <p class="family-label font-serif">Nhà Trai</p>
               <p>Ông <span style="font-weight: 600;">Hoàng Xuân Hồng</span></p>
               <p>Bà <span style="font-weight: 600;">Trương Thị Thuý</span></p>
-              <p style="font-size:.875rem;color:var(--muted-fg);margin-top:.5rem">451 Trần Khánh Dư, Đăk Cấm, Quãng Ngãi</p>
+              <p style="font-size:.875rem;color:var(--muted-fg);margin-top:.5rem">455 Trần Khánh Dư, Đăk Cấm, Quãng Ngãi
+              </p>
             </div>
             <div>
               <p class="family-label font-serif">Nhà Gái</p>
-              <p>Ông Bà Trần Văn Minh</p>
-              <p>Phạm Thị Hoa</p>
-              <p style="font-size:.875rem;color:var(--muted-fg);margin-top:.5rem;word-break:break-word">
-                fdsfsdfdfddddddddddddddddddddddddddddddd</p>
+              <p>Ông <span style="font-weight: 600;">Nguyễn Trọng Tiến (Cố Phụ)</span></p>
+              <p>Bà <span style="font-weight: 600;">Lê Thị Thu Linh</span></p>
+              <p style="font-size:.875rem;color:var(--muted-fg);margin-top:.5rem;word-break:break-word">61 Tiền Lân 7,
+                KDC Hoàng Hải, Bà Điểm, TP HCM</p>
             </div>
           </div>
           <div class="announcement">
@@ -113,158 +114,155 @@
         </div>
       </section>
 
-      <!-- Thông tin tiệc cưới -->
       <section class="section">
-        <div class="container">
-          <h2 class="section-title font-serif">Thông tin tiệc cưới</h2>
-          <div class="divider">
-            <span class="line"></span>
-            <span>&#10087;</span>
-            <span class="line"></span>
-          </div>
-          <div class="wedding-time">
-            <p style="font-size:1.125rem;color:var(--card-fg);opacity:.9">Tiệc cưới sẽ diễn ra vào lúc:</p>
-            <p class="big-time">11:00</p>
-            <div class="wedding-date-box">
-              <div class="wedding-date-inner">
-                <p class="dow">Chủ Nhật</p>
-                <p class="num">02</p>
-                <p class="month">Tháng 08</p>
-                <p style="font-size:.75rem;color:var(--muted-fg)">2026</p>
+        <div class="toggle">
+          <button class="tab active" data-side="groom">
+            Nhà Trai
+          </button>
+          <button class="tab" data-side="bride">
+            Nhà Gái
+          </button>
+          <div class="slider"></div>
+        </div>
+        <!-- Thông tin tiệc cưới nhà gái -->
+        <section class="section">
+          <div class="container">
+            <h2 class="section-title font-serif" id="title"></h2>
+            <div class="divider">
+              <span class="line"></span>
+              <span>&#10087;</span>
+              <span class="line"></span>
+            </div>
+            <div class="wedding-time">
+              <p style="font-size:1.125rem;color:var(--card-fg);opacity:.9">Tiệc cưới sẽ diễn ra vào lúc:</p>
+              <p class="big-time" id="time"></p>
+              <div class="wedding-date-box">
+                <div class="wedding-date-inner">
+                  <p class="dow" id="day"></p>
+                  <p class="num" id="date"></p>
+                  <p class="month" id="month"></p>
+                  <p style="font-size:.75rem;color:var(--muted-fg)" id="year"></p>
+                </div>
+              </div>
+              <p class="wedding-note" id="note"></p>
+              <div class="schedule-mini" id="detail">
               </div>
             </div>
-            <p class="wedding-note">(Tức ngày 20/06 năm Bính Ngọ)</p>
-            <div class="schedule-mini">
-              <p><span style="color:var(--muted-fg)">Đón khách</span> · <strong>10:00</strong></p>
-              <p><span style="color:var(--muted-fg)">Khai tiệc</span> · <strong>11:00</strong></p>
+          </div>
+        </section>
+  
+        <!-- Cùng đếm ngược -->
+        <section class="section">
+          <div class="container">
+            <h2 class="section-title font-serif">Cùng đếm ngược</h2>
+            <div class="divider">
+              <span class="line"></span>
+              <span>&#10087;</span>
+              <span class="line"></span>
+            </div>
+            <div class="countdown">
+              <div class="count-box">
+                <div class="num" id="cd-days">00</div>
+                <div class="unit">Ngày</div>
+              </div>
+              <div class="count-box">
+                <div class="num" id="cd-hours">00</div>
+                <div class="unit">Giờ</div>
+              </div>
+              <div class="count-box">
+                <div class="num" id="cd-minutes">00</div>
+                <div class="unit">Phút</div>
+              </div>
+              <div class="count-box">
+                <div class="num" id="cd-seconds">00</div>
+                <div class="unit">Giây</div>
+              </div>
+            </div>
+            <p class="calendar-title font-serif" id="monyea">Tháng 8 / 2026</p>
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </div>
+        </section>
+  
+        <!-- Lời mời tham dự -->
+        <section class="section" style="padding: 0 1rem;">
+          <div class="container">
+            <div class="divider">
+              <span class="line"></span>
+              <span>&#10087;</span>
+              <span class="line"></span>
+            </div>
+            <p class="rsvp-text">Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi. Xin xác nhận để chúng
+              tôi
+              chuẩn bị chu đáo nhất.</p>
+          </div>
+        </section>
+  
+        <!-- Địa điểm -->
+        <section class="section">
+          <div class="container">
+            <h2 class="section-title font-serif">Tiệc cưới sẽ tổ chức tại</h2>
+            <div class="divider">
+              <span class="line"></span>
+              <span>&#10087;</span>
+              <span class="line"></span>
+            </div>
+            <div style="text-align:center">
+              <p class="location-text font-serif" id="location">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem;height:1.25rem">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </p>
+              <span id="maps"></span>
             </div>
           </div>
-        </div>
+        </section>
+  
+        <!-- Lịch trình -->
+        <section class="section">
+          <div class="container">
+            <h2 class="section-title font-serif">Lịch trình ngày cưới</h2>
+            <div class="divider">
+              <span class="line"></span>
+              <span>&#10087;</span>
+              <span class="line"></span>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <p class="timeline-time font-serif">09:00</p>
+                <p class="timeline-label">Rước dâu</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <p class="timeline-time font-serif">17:30</p>
+                <p class="timeline-label">Đón khách nhà hàng</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <p class="timeline-time font-serif">18:30</p>
+                <p class="timeline-label">Lễ nhà hàng</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <p class="timeline-time font-serif">19:00</p>
+                <p class="timeline-label">Khai tiệc</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
 
-      <!-- Cùng đếm ngược -->
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title font-serif">Cùng đếm ngược</h2>
-          <div class="divider">
-            <span class="line"></span>
-            <span>&#10087;</span>
-            <span class="line"></span>
-          </div>
-          <div class="countdown">
-            <div class="count-box">
-              <div class="num" id="cd-days">00</div>
-              <div class="unit">Ngày</div>
-            </div>
-            <div class="count-box">
-              <div class="num" id="cd-hours">00</div>
-              <div class="unit">Giờ</div>
-            </div>
-            <div class="count-box">
-              <div class="num" id="cd-minutes">00</div>
-              <div class="unit">Phút</div>
-            </div>
-            <div class="count-box">
-              <div class="num" id="cd-seconds">00</div>
-              <div class="unit">Giây</div>
-            </div>
-          </div>
-          <p class="calendar-title font-serif">Tháng 8 / 2026</p>
-          <div class="calendar-grid" id="calendar-grid"></div>
-          <div style="text-align:center">
-            <a class="btn cal-btn"
-              href="https://www.google.com/calendar/render?action=TEMPLATE&text=%C4%90%C3%A1m%20c%C6%B0%E1%BB%9Bi%20Ho%C3%A0ng%20Ng%E1%BB%8Dc%20Ph%C3%BAc%20%26%20Nguy%E1%BB%85n%20L%C3%AA%20Thu%E1%BB%B3%20Trinh&dates=20260802T160000Z/20260802T180000Z&ctz=Asia/Bangkok"
-              target="_blank" rel="noopener noreferrer">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              Thêm vào lịch
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Xác nhận tham dự -->
-      <section class="section" style="padding: 0 1rem;">
-        <div class="container">
-          <div class="divider">
-            <span class="line"></span>
-            <span>&#10087;</span>
-            <span class="line"></span>
-          </div>
-          <p class="rsvp-text">Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi. Xin xác nhận để chúng tôi
-            chuẩn bị chu đáo nhất.</p>
-        </div>
-      </section>
-
-      <!-- Địa điểm -->
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title font-serif">Tiệc cưới sẽ tổ chức tại</h2>
-          <div class="divider">
-            <span class="line"></span>
-            <span>&#10087;</span>
-            <span class="line"></span>
-          </div>
-          <div style="text-align:center">
-            <p class="location-text font-serif">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem;height:1.25rem">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              sdfsdfsd
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Lịch trình -->
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title font-serif">Lịch trình ngày cưới</h2>
-          <div class="divider">
-            <span class="line"></span>
-            <span>&#10087;</span>
-            <span class="line"></span>
-          </div>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <p class="timeline-time font-serif">21:00</p>
-              <p class="timeline-label">Rước dâu</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <p class="timeline-time font-serif">22:30</p>
-              <p class="timeline-label">Đón khách nhà hàng</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <p class="timeline-time font-serif">23:00</p>
-              <p class="timeline-label">Lễ nhà hàng</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <p class="timeline-time font-serif">23:30</p>
-              <p class="timeline-label">Khai tiệc</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
     <footer class="footer">
       <p>&#9825; Trân trọng cảm ơn</p>
     </footer>
 
-    <audio id="openSound">
+    <!-- <audio id="openSound">
       <source src="open-box.mp3" type="audio/mp3">
-    </audio>
-    
+    </audio> -->
+
   </div>
   <script src="script.js"></script>
 </body>

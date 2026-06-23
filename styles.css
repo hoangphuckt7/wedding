@@ -106,7 +106,7 @@ h4 {
   color: var(--card-fg);
   border-radius: 1rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, .2);
-  padding: 2rem;
+  padding: 2rem 1rem;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -155,7 +155,7 @@ h4 {
 }
 
 .section {
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 0 1rem;
 }
 
 .container {
@@ -358,6 +358,7 @@ h4 {
   letter-spacing: .15em;
   color: var(--accent);
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .announcement .sub-label {
@@ -365,6 +366,7 @@ h4 {
   letter-spacing: .1em;
   color: var(--muted-fg);
   margin-top: .25rem;
+  font-weight: 600;
 }
 
 .couple-name {
@@ -618,7 +620,7 @@ h4 {
   align-items: center;
   gap: .5rem;
   color: var(--primary);
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
   font-size: 1.25rem;
 }
 
@@ -865,8 +867,52 @@ h4 {
     transform: translate(0, 0) scale(.2);
     opacity: 1;
   }
+
   100% {
     transform: translate(var(--x), var(--y)) rotate(360deg) scale(1.4);
     opacity: 0;
   }
+}
+
+
+/* nút toggle */
+.toggle {
+  position: relative;
+  display: flex;
+  background: #efe6df;
+  padding: 6px;
+  border-radius: 999px;
+}
+
+.tab {
+  flex: 1;
+  height: 52px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+  transition: .3s;
+  color: #8a6854;
+}
+
+.tab.active {
+  color: white;
+}
+
+.slider {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: calc(50% - 6px);
+  height: 52px;
+  background: #a56e51;
+  border-radius: 999px;
+  transition: .35s cubic-bezier(.4, 0, .2, 1);
+}
+
+.toggle.right .slider {
+  transform:
+    translateX(100%);
 }
