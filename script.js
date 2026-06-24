@@ -18,7 +18,7 @@ function createPetals() {
   for (let i = 0; i < 14; i++) {
     const s = document.createElement('span');
     s.className = 'petal';
-    s.textContent = '\u{1F338}';
+    // s.textContent = '\u{1F338}';
     s.textContent = '🪷';
     s.style.left = Math.random() * 100 + '%';
     s.style.animationDuration = (12 + Math.random() * 12) + 's';
