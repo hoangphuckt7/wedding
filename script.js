@@ -1,12 +1,12 @@
 const PHOTOS = [
   "g1.webp",
   "g2.webp",
-  "g3.webp",
   "g4.webp",
-  "g5.webp",
+  "g3.webp",
   "g6.webp",
+  "g5.webp",
   "g7.webp",
-  "g8.webp",
+  "g9.webp",
 ];
 
 const card = document.querySelector(".card");
@@ -19,6 +19,7 @@ function createPetals() {
     const s = document.createElement('span');
     s.className = 'petal';
     s.textContent = '\u{1F338}';
+    s.textContent = '🪷';
     s.style.left = Math.random() * 100 + '%';
     s.style.animationDuration = (12 + Math.random() * 12) + 's';
     s.style.animationDelay = (-Math.random() * 20) + 's';
@@ -79,35 +80,25 @@ function openCard() {
 // Gallery
 let galleryIdx = 0;
 function initGallery() {
-  const img = document.getElementById('gallery-img');
-  const idx = document.getElementById('gallery-idx');
-  const total = document.getElementById('gallery-total');
-  const thumbs = document.getElementById('thumbs');
-  img.src = PHOTOS[0];
-  idx.textContent = '1';
-  total.textContent = PHOTOS.length;
-  thumbs.innerHTML = '';
-  PHOTOS.slice(0, 6).forEach((p, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'thumb' + (i === 0 ? ' active' : '');
-    btn.onclick = () => setGalleryIdx(i);
-    const imgEl = document.createElement('img');
-    imgEl.src = p;
-    imgEl.alt = '';
-    btn.appendChild(imgEl);
-    thumbs.appendChild(btn);
+  const grid = document.querySelector(".gallery-grid");
+
+  if (grid.dataset.ready) return;
+
+  grid.dataset.ready = 1;
+
+  grid.innerHTML = "";
+
+  PHOTOS.forEach((src, index) => {
+    const box = document.createElement("div");
+
+    box.className = (index === 2 )|| (index === 5) ? "photo wide" : "photo";
+
+    box.innerHTML = `<img loading="lazy" src="${src}">`;
+
+    grid.appendChild( box );
+
   });
 }
-function setGalleryIdx(i) {
-  galleryIdx = i;
-  document.getElementById('gallery-img').src = PHOTOS[i];
-  document.getElementById('gallery-idx').textContent = i + 1;
-  document.querySelectorAll('.thumb').forEach((t, ti) => {
-    t.classList.toggle('active', ti === i);
-  });
-}
-function galleryPrev() { setGalleryIdx((galleryIdx - 1 + PHOTOS.length) % PHOTOS.length) }
-function galleryNext() { setGalleryIdx((galleryIdx + 1) % PHOTOS.length) }
 
 // Calendar
 function initCalendar(targetDate) {
@@ -197,8 +188,6 @@ function submitRsvp(e) {
   return false;
 }
 
-// const sound = document.getElementById( "openSound" );
-
 function bloom() {
 
   const wrap = document.createElement("div");
@@ -231,7 +220,7 @@ function bloom() {
 const wedding = {
   groom: {
     dateObj: new Date("2026-08-02T11:00:00+07:00"),
-    title: "Thông tin tiệc cưới nhà trai",
+    title: "Save The Date",
     time: "11:00",
     day: "Chủ Nhật",
     date: "02",
@@ -252,7 +241,7 @@ const wedding = {
 
   bride: {
     dateObj: new Date("2026-07-25T19:00:00+07:00"),
-    title: "Thông tin tiệc cưới nhà gái",
+    title: "Save The Date",
     time: "19:00",
     day: "Thứ bảy",
     date: "25",
