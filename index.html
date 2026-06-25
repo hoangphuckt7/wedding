@@ -259,7 +259,22 @@
       <source src="Ngày Xuân Vui Cưới - Giao Hưởng Tân Thời - Bản Phối Sang Trọng & Sôi Động (mp3cut.net).mp3"
         type="audio/mp3">
     </audio>
-    <button id="musicBtn" class="music-btn"></button>
+    <button id="musicBtn" class="music-btn">
+      <!-- icon tắt -->
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+        style="color: #ffffff; margin:10px;" id="stopbtn">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+          class="jsx-96d6f55b08df8af4"></path>
+      </svg>
+
+      <!-- icon đang phát -->
+
+      <div class="playing" id="playbtn">
+        <span class="playing__bar playing__bar1"></span>
+        <span class="playing__bar playing__bar2"></span>
+        <span class="playing__bar playing__bar3"></span>
+      </div>
+    </button>
 
   </div>
   <script src="script.js"></script>

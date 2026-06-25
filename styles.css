@@ -944,6 +944,9 @@ h4 {
   transform: scale(1.08);
 }
 
+.music-btn .hidden{
+  display: none !important;
+}
 .music-btn .playing {
   width: 100%;
   display: flex;
