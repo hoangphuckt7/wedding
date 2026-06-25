@@ -110,7 +110,8 @@ h4 {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   z-index: 10;
 }
 
@@ -919,6 +920,7 @@ h4 {
 
 /* loa */
 .music-btn {
+  background: #c1c8b9; 
   position: fixed;
   right: 20px;
   bottom: 20px;
@@ -926,7 +928,6 @@ h4 {
   height: 54px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .88);
   backdrop-filter: blur(12px);
   font-size: 24px;
   cursor: pointer;
@@ -939,20 +940,43 @@ h4 {
   transform: scale(1.08);
 }
 
-.music-btn.playing {
-  animation: spin 4s linear infinite;
+.music-btn .playing {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: .8rem;
+  box-sizing: border-box;
 }
 
-@keyframes spin {
+.playing__bar {
+  display: inline-block;
+  background: white;
+  width: 30%;
+  height: 100%;
+  animation: up-and-down 1.3s ease infinite alternate;
+}
 
-  from {
-    transform: rotate(0deg);
-  }
+.playing__bar1 {
+  height: 60%;
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+.playing__bar2 {
+  height: 30%;
+  animation-delay: -2.2s;
+}
 
+.playing__bar3 {
+  height: 75%;
+  animation-delay: -3.7s;
+}
+
+@keyframes up-and-down {
+  10% { height: 30%; }
+  30% { height: 100%; }
+  60% { height: 50%; }
+  80% { height: 75%; }
+  100% { height: 60%;}
 }
 
 

@@ -83,7 +83,7 @@ function openCard() {
 let galleryIdx = 0;
 function initGallery() {
   const grid = document.querySelector(".gallery-grid");
-
+  const widePhotos = [2, 5];
   if (grid.dataset.ready) return;
 
   grid.dataset.ready = 1;
@@ -93,11 +93,11 @@ function initGallery() {
   PHOTOS.forEach((src, index) => {
     const box = document.createElement("div");
 
-    box.className = (index === 2 )|| (index === 5) ? "photo wide" : "photo";
+    box.className = widePhotos.includes(index) ? "photo wide" : "photo";
 
     box.innerHTML = `<img loading="lazy" src="${src}">`;
 
-    grid.appendChild( box );
+    grid.appendChild(box);
 
   });
 }
@@ -328,18 +328,16 @@ function playMusic() {
   bgMusic.volume = 0.35;
   bgMusic.play()
     .then(() => {
-      musicPlaying =
-        true;
-      musicBtn.textContent =
-        "🔊";
-      musicBtn.classList.add(
-        "playing"
-      );
+      musicPlaying = true;
+      musicBtn.innerHTML = `<div class="playing">
+        <span class="playing__bar playing__bar1"></span>
+        <span class="playing__bar playing__bar2"></span>
+        <span class="playing__bar playing__bar3"></span>
+      </div>`;
+      musicBtn.classList.add("playing");
     })
     .catch(() => {
-
-      console.log(
-        "autoplay blocked"
+      console.log("autoplay blocked"
       );
 
     });
@@ -353,10 +351,10 @@ function pauseMusic() {
   bgMusic.pause();
   musicPlaying = false;
 
-  musicBtn.textContent = "🔇";
-  musicBtn.classList.remove(
-    "playing"
-  );
+  musicBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" style="color: #ffffff; margin:10px">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" class="jsx-96d6f55b08df8af4"></path>
+      </svg>`;
+  musicBtn.classList.remove("playing");
 
 }
 
