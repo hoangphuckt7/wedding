@@ -30,6 +30,16 @@ function createPetals() {
   }
 }
 
+function getGuestName() {
+  const invite = document.querySelector(".invite-label");
+  const params = new URLSearchParams(location.search);
+  console.log(params.get("name"));
+  const name = params.get("name");
+  if (name) {
+      invite.textContent = `Thân Mời bạn ${decodeURIComponent(name)}`;
+  }
+}
+
 // Cover
 
 function openCard() {
@@ -309,8 +319,9 @@ tabs.forEach(
       render(btn.dataset.side);
     };
   });
-createPetals();
 
+createPetals();
+getGuestName();
 
 
 const bgMusic = document.getElementById("bgMusic");
