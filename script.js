@@ -35,8 +35,12 @@ function getGuestName() {
   const params = new URLSearchParams(location.search);
   console.log(params.get("name"));
   const name = params.get("name");
+  const names = params.get("name");
   if (name) {
       invite.textContent = `Thân Mời bạn ${decodeURIComponent(name)}`;
+  }
+  if (names) {
+    invite.textContent = `Thân Mời ${decodeURIComponent(name)}`
   }
 }
 
